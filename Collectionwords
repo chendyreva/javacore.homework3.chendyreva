@@ -1,0 +1,30 @@
+package ru.geekbrains.collection;
+    import java.util.*;
+    public class Collectionwords    {
+        public static void main(String[] args)
+        {
+            String fulltext="buffet cream yogurt okra cheese bacon lemonade jelly cream beet bacon buffet lemonade yogurt okra cream cheese yogurt jelly";
+            String[] words=fulltext.split(" ");
+            Object[] wordsdistinct=unique(words);
+            int i;
+            for(Object distword: wordsdistinct)
+            {
+                i=0;
+                for(String oneword: words)
+                    if(oneword.equals(distword))
+                        i++;
+                System.out.println("Слово:\"" + distword + "\" встречается "+i+" раз(а)");
+            }
+        }
+
+        private static Object[] unique(String[] arrayName)
+        {
+            ArrayList distinct=new ArrayList ();
+            for(int i=0; i<arrayName.length;i++ )
+            {
+                if(!distinct.contains(arrayName[i]))
+                    distinct.add(arrayName[i]);
+            }
+            return distinct.toArray();
+        }
+    }
